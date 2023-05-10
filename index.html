@@ -3,32 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=
-    
+    <meta name="viewport" content="width=   
     , initial-scale=1.0">
-    <title>Gerador de senha</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+      <title>Gerador de senha</title>
 </head>
 <body>
-    <h1>Gerador de senhas</h1>
-    <p>Utilize o nosso gerador online para criar uma senha forte e segura.</p>
+<main>
+    <section class="hero">
+        <h1 class="title">Gerador de senhas</h1>
+        <p class="subtitle">
+            Utilize o nosso gerador online para criar uma senha forte e segura.
+        </p>
+    </section>
+    
+    <section class="box">
+        <div class="password">
+            <div class="text">
+                <input type="text" name="password" id="password">
+            </div>
+            <div class="actions">
+                <button id="copy-1">
+                    <img src="copy.svg" width="42">
+                </button>
+                <button id="renew">
+                    <img src="renew.svg" width="42">
+                </button>
+            </div>
+        </div>
+        <div class="security-indicator">
+            <div 
+            id="security-indicator-bar" 
+            class="bar safe" 
+            style="width: 90%"
+            ></div>
+        </div>
+    </section>
 
-    <input type="text" name="password" id="password">
-    <input 
+    <section class="box customize">
+        <h3 class="title">Personalizar</h3>
+        <div class="actions">
+            <div class="password-length">
+                <div class="config">
+                    <label class="checkbox-container">
+                        <span class="text">Maiúsculas</span>
+                        <input type="checkbox" id="uppercase-check" checked />
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">
+                        <span class="text">Números</span>
+                        <input type="checkbox" id="numbers-check" checked />
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">
+                        <span class="text">Símbolos</span>
+                        <input type="checkbox" id="symbol-check" checked />
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+            <p>Tamanho: <span id="password-length-text">16</span></p>
+            <input 
     type="range" 
     name="password-length" 
     id="password-length" 
     value="16"
     min="4"
     max="64"/>
+        </div>
+    </section>
 
+    
 
-    <button id="button">Copiar senha</button>
+    <button id="copy-1">Copiar senha</button>
+</main>
 
     <script>
         let passwordlength = 16
         const inputE1 = document.querySelector("#password")
-
-
 
         function generatepassword() {
                 const chars = "ABCDEFGHIJKLMNPQRSTUVWXYabcdefghijklmnpqrstuvwxy123456789?!@&*"
@@ -52,14 +108,12 @@
             generatepassword()
         })
 
-        const copyButtonE1 = document.querySelector("#button")
-        copyButtonE1.addEventListener("click", copy)
-        
-        
-      
+        document.querySelector("#copy-1").addEventListener("click", copy)
+        document.querySelector("#copy-2").addEventListener("click", copy)
+
+            
         
         generatepassword()
-    </script> 
-    
+    </script>     
 </body>
 </html>
